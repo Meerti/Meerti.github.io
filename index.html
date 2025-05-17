@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bugatti - Исключительная роскошь и производительность</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #e8e8e8;
+        }
+        
+        .hero {
+            height: 100vh;
+            background: url('https://billionrent.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Funix-center%2Fimage%2Fupload%2Fdpr_3.0%2Cf_auto%2Cq_auto%3Abest%2Cw_367%2Cc_lfill%2Cg_center%2Car_1.33%2Cfl_progressive%2Fw_367%2Ch_215%2Cc_crop%2Cg_center%2Car_1.33%2Cfl_progressive%2Fl_power-rent%3Apzf7cbrjmfyxebjpemcs%2Fdpr_3.0%2Cf_auto%2Cq_auto%3Agood%2Cc_limit%2Cw_40%2Co_30%2Ffl_layer_apply%2Cg_south_east%2Cx_30%2Cy_14%2Fv1709189737%2Fpower-rent%2Fxelugzssbpfregd44zbz.webp&w=3840&q=75') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 100px;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #e8e8e8;
+            transform: translateY(-3px);
+        }
+        
+        .models {
+            padding: 100px 50px;
+            text-align: center;
+        }
+        
+        .models h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+        
+        .car-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .car {
+            width: 350px;
+            background: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        
+        .car:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(255, 255, 255, 0.1);
+        }
+        
+        .car img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .car-info {
+            padding: 20px;
+        }
+        
+        .car-info h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .car-info p {
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .spec-item {
+            text-align: center;
+        }
+        
+        .spec-item span {
+            display: block;
+            font-size: 12px;
+            color: #777;
+        }
+        
+        .spec-item strong {
+            font-size: 18px;
+            color: #fff;
+        }
+        
+        .about {
+            padding: 100px 50px;
+            background: #111;
+            text-align: center;
+            background-image: url('https://static.tildacdn.com/tild3634-6566-4765-a133-343061623763/bgs1464.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        
+        .about-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .about p {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            color: #aaa;
+        }
+        
+        .contact {
+            padding: 100px 50px;
+            text-align: center;
+            background: #000;
+        }
+        
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            background: #111;
+            border: 1px solid #333;
+            color: #fff;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        footer {
+            padding: 30px;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: #fff;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        .gallery {
+            padding: 50px;
+            text-align: center;
+            background: #111;
+        }
+        
+        .gallery h2 {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            width: 300px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+            }
+            
+            .hero {
+                padding: 0 20px;
+            }
+            
+            .hero h1 {
+                font-size: 40px;
+            }
+            
+            nav ul li {
+                margin-left: 15px;
+            }
+            
+            .gallery-item {
+                width: 100%;
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://s1.1zoom.me/big0/117/BUGATTI_2019_La_Voiture_Noire_Back_view_Black_568007_1280x720.jpg" alt="Bugatti Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="#models">Модели</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#about">О компании</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bugatti — Совершенство в каждом детале</h1>
+            <p>Ощутите непревзойденную мощь, роскошь и инновации с автомобилями Bugatti. Исключительная производительность для избранных.</p>
+            <a href="#models" class="btn">Исследовать модели</a>
+        </div>
+    </section>
+    
+    <section class="models" id="models">
+        <h2>Наши исключительные модели</h2>
+        <div class="car-container">
+            <div class="car">
+                <img src="https://res.cloudinary.com/unix-center/image/upload/c_limit,dpr_3.0,f_auto,fl_progressive,g_center,h_580,q_75,w_906/t6jgv7f09mbgipzm2vsv.jpg" alt="Bugatti Chiron">
+                <div class="car-info">
+                    <h3>Bugatti Chiron</h3>
+                    <p>Исключительная производительность и непревзойденный дизайн</p>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <strong>1500 л.с.</strong>
+                            <span>Мощность</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>420 км/ч</strong>
+                            <span>Макс. скорость</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>2.4 сек</strong>
+                            <span>0-100 км/ч</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">Запросить цену</a>
+                </div>
+            </div>
+            
+            <div class="car">
+                <img src="https://i0.wp.com/www.thesupercarblog.com/wp-content/uploads/2021/01/Bugatti-Divo-Hellbug-spec-1.jpg?fit=1280%2C919&ssl=1" alt="Bugatti Divo">
+                <div class="car-info">
+                    <h3>Bugatti Divo</h3>
+                    <p>Эксклюзивный гиперкар с фокусировкой на управляемости</p>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <strong>1500 л.с.</strong>
+                            <span>Мощность</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>380 км/ч</strong>
+                            <span>Макс. скорость</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>2.4 сек</strong>
+                            <span>0-100 км/ч</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">Запросить цену</a>
+                </div>
+            </div>
+            
+            <div class="car">
+                <img src="https://cimg2.ibsrv.net/ibimg/hgm/1920x1080-1/100/810/bugatti-hot-weather-testing_100810786.jpg   " alt="Bugatti Centodieci">
+                <div class="car-info">
+                    <h3>Bugatti Centodieci</h3>
+                    <p>Дань уважения легендарному EB110, ограниченная серия</p>
+                    <div class="specs">
+                        <div class="spec-item">
+                            <strong>1600 л.с.</strong>
+                            <span>Мощность</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>380 км/ч</strong>
+                            <span>Макс. скорость</span>
+                        </div>
+                        <div class="spec-item">
+                            <strong>2.4 сек</strong>
+                            <span>0-100 км/ч</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn">Запросить цену</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="gallery" id="gallery">
+        <h2>Галерея Bugatti</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPMDbNerfX5A-wvhrgdZ27vXC_vPrvH-R56Q&s" alt="Bugatti Gallery 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://res.cloudinary.com/unix-center/image/upload/c_limit,dpr_3.0,f_auto,fl_progressive,g_center,h_580,q_75,w_906/t6jgv7f09mbgipzm2vsv.jpg" alt="Bugatti Gallery 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://static.tildacdn.com/tild3634-6566-4765-a133-343061623763/bgs1464.jpg" alt="Bugatti Gallery 3">
+            </div>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2>О компании Bugatti</h2>
+            <p>Основанная в 1909 году Этторе Бугатти, компания Bugatti стала символом исключительного мастерства, инноваций и роскоши в автомобилестроении. Каждый автомобиль Bugatti — это произведение искусства, сочетающее в себе передовые технологии и непревзойденный дизайн.</p>
+            <p>Сегодня Bugatti продолжает устанавливать новые стандарты в мире гиперкаров, создавая автомобили с беспрецедентной производительностью и эксклюзивностью.</p>
+            <a href="#contact" class="btn">Связаться с нами</a>
+        </div>
+    </section>
+    
+    <section class="contact" id="contact">
+        <h2>Свяжитесь с нами</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <label for="name">Ваше имя</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input type="tel" id="phone">
+            </div>
+            <div class="form-group">
+                <label for="message">Сообщение</label>
+                <textarea id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn">Отправить запрос</button>
+        </form>
+    </section>
+    
+    <footer>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook">f</i></a>
+            <a href="#"><i class="fab fa-instagram">i</i></a>
+            <a href="#"><i class="fab fa-youtube">y</i></a>
+        </div>
+        <p>&copy; 2023 Bugatti Automobiles S.A.S. Все права защищены.</p>
+    </footer>
+    
+    <script>
+        // Плавная прокрутка для якорных ссылок
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Обработка формы (заглушка)
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Спасибо за ваш запрос! Мы свяжемся с вами в ближайшее время.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
